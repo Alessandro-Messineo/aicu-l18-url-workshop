@@ -120,8 +120,7 @@ function showTicketDetails(ticket) {
   ticketDetailsCustomer.textContent = ticket.customer;
   ticketDetailsBody.textContent = ticket.description || "Nessuna descrizione.";
 
-  if (ticket.referenceUrl) {
-    // Intentionally unsafe for the L18 URL workshop.
+  if (ticket.referenceUrl && /^https?:\/\//i.test(ticket.referenceUrl)) {
     ticketReferenceLink.href = ticket.referenceUrl;
     ticketReferenceLink.hidden = false;
     ticketReferenceFallback.hidden = true;
